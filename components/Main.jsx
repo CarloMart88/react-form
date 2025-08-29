@@ -23,7 +23,7 @@ const articles = [
 
 function Main() {
   return (
-    <div className="col-12 m-2 ">
+    <div className="col-10 m-2 ">
       <div className="row">
         <h2 className="text-center">I miei articoli :</h2>
       </div>
@@ -31,12 +31,30 @@ function Main() {
         {articles.map((article) => {
           const { id, title } = article;
           return (
-            <div className="col-12 m-2 " key={id}>
+            <div className="col-10 m-2 " key={id}>
               {title}
             </div>
           );
         })}
       </div>
+      <form>
+        <div className="row">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" className="form-label m-2">
+              Inserisci il tuo articolo
+            </label>
+            <input
+              type="text"
+              className="form-control m-2"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary m-3 col-2">
+            Invia
+          </button>
+        </div>
+      </form>
     </div>
   );
 }
