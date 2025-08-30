@@ -34,7 +34,7 @@ function Main() {
 
     //creo il nuovo elemento
     const newA = {
-      id: initialArticles.length + 1,
+      id: articles.length + 1,
       title: newArticle.trim(),
     };
 
@@ -67,7 +67,10 @@ function Main() {
             <input
               type="text"
               className="form-control m-2"
-              id="exampleInputEmail1"
+              value={newArticle}
+              onChange={(e) => {
+                setNewArticle(e.target.value);
+              }}
             />
           </div>
           <button type="submit" className="btn btn-primary m-3 col-2">
