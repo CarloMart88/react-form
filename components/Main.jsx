@@ -29,7 +29,7 @@ function Main() {
   const [articles, setArticles] = useState(initialArticles);
   const [newArticle, setNewArticle] = useState("");
 
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     //creo il nuovo elemento
@@ -37,6 +37,12 @@ function Main() {
       id: initialArticles.length + 1,
       title: newArticle.trim(),
     };
+
+    //aggiorno sia setArticles così da poter vedere i nuovi elementi e setNewArticle in modo da refreshare il campo input
+    setArticles([...articles, newA]);
+    setNewArticle("");
+
+    console.log(articles);
   };
 
   return (
@@ -54,20 +60,17 @@ function Main() {
           );
         })}
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="row">
-          <div class="mb-3">
-            <label for="exampleInputEmail1" className="form-label m-2">
-              Inserisci il tuo articolo
-            </label>
+          <div className="mb-3">
+            <label className="form-label m-2">Inserisci il tuo articolo</label>
             <input
               type="text"
               className="form-control m-2"
               id="exampleInputEmail1"
-              aria-describedby="emailHelp"
             />
           </div>
-          <button type="submit" class="btn btn-primary m-3 col-2">
+          <button type="submit" className="btn btn-primary m-3 col-2">
             Invia
           </button>
         </div>
