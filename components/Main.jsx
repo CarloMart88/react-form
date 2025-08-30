@@ -28,9 +28,10 @@ function Main() {
   //creo due variabili una che contiene l'array attuale e quella che andrà ad aggiornare il vecchio array
   const [articles, setArticles] = useState(initialArticles);
   const [newArticle, setNewArticle] = useState("");
-
+  // handlesubmit
   const handleSubmit = (e) => {
     e.preventDefault();
+    alert("valore inserito");
 
     //creo il nuovo elemento
     const newA = {
