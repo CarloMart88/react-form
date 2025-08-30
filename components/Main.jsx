@@ -1,4 +1,7 @@
-const articles = [
+import { useState } from "react";
+//importo useState per usare la variabile di stato e dare reattività alla form e input
+
+const initialArticles = [
   {
     id: 1,
     title: "5 modi per rendere la pasta di casa irresistibile",
@@ -22,6 +25,20 @@ const articles = [
 ];
 
 function Main() {
+  //creo due variabili una che contiene l'array attuale e quella che andrà ad aggiornare il vecchio array
+  const [articles, setArticles] = useState(initialArticles);
+  const [newArticle, setNewArticle] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    //creo il nuovo elemento
+    const newA = {
+      id: initialArticles.length + 1,
+      title: newArticle.trim(),
+    };
+  };
+
   return (
     <div className="col-10 m-2 ">
       <div className="row">
