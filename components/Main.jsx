@@ -46,6 +46,13 @@ function Main() {
     console.log(articles);
   };
 
+  // creo la funzione per cancellare l'elemento
+  const deleteArticles = (id) => {
+    const updateArticles = articles.filter((article) => article.id !== id);
+
+    setArticles(updateArticles);
+  };
+
   return (
     <div className="col-10 m-2 ">
       <div className="row">
@@ -55,8 +62,19 @@ function Main() {
         {articles.map((article) => {
           const { id, title } = article;
           return (
-            <div className="col-10 m-2 " key={id}>
-              {title}
+            <div className="col-12 m-2 " key={id}>
+              <div className="row">
+                <div className="col-8">{title}</div>
+                <div className="col-4">
+                  {" "}
+                  <button
+                    onClick={() => deleteArticles(id)}
+                    className="btn btn-danger m-3"
+                  >
+                    cancella
+                  </button>
+                </div>
+              </div>
             </div>
           );
         })}
